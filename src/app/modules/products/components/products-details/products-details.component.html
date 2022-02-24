@@ -1,0 +1,59 @@
+<div class="panelbar-wrapper">
+
+  <app-page-header [title]="productDetails?.product_title||'Product Details'" [backPage]="'products'"></app-page-header>
+
+  <ng-container *ngIf="!!productDetails; else elseTemplate">
+
+    <kendo-tilelayout [columns]="4" [rowHeight]="255" [resizable]="true" [reorderable]="true">
+
+      <kendo-tilelayout-item title="Basic Details" [col]="1" [colSpan]="2">
+        <kendo-tilelayout-item-body>
+          <ul>
+            <li><label>Product Id :</label> {{productDetails.product_id}}</li>
+            <li><label>Prime Product :</label> {{productDetails.isPrime?'Yes':'No'}}</li>
+            <li><label>Country :</label> {{productDetails.country}}</li>
+          </ul>
+          <div>
+            <h2>Available Units : {{productDetails.available_quantity}}</h2>
+          </div>
+        </kendo-tilelayout-item-body>
+      </kendo-tilelayout-item>
+
+      <kendo-tilelayout-item title="Scan to shop" [col]="3">
+        <kendo-tilelayout-item-body>
+          <qrcode [qrdata]="productDetails.product_detail_url" [width]="200" [errorCorrectionLevel]="'M'"></qrcode>
+        </kendo-tilelayout-item-body>
+      </kendo-tilelayout-item>
+
+      <kendo-tilelayout-item title="Product Image" [col]="4" [rowSpan]="3">
+        <kendo-tilelayout-item-body>
+          <img [src]="productDetails.product_main_image_url" [alt]="productDetails.product_main_image_url" style="max-width: 100%">
+        </kendo-tilelayout-item-body>
+      </kendo-tilelayout-item>
+
+      <kendo-tilelayout-item title="Features" [col]="1" [colSpan]="2" [rowSpan]="2">
+        <kendo-tilelayout-item-body>
+          <ul>
+            <li *ngFor="let features of productDetails.feature_bullets">{{features}}</li>
+          </ul>
+        </kendo-tilelayout-item-body>
+      </kendo-tilelayout-item>
+
+      <kendo-tilelayout-item title="Price Details" [col]="3" [rowSpan]="2">
+        <kendo-tilelayout-item-body>
+          <p>Current Price</p>
+          <h2>{{productDetails.price_information.currency}}{{productDetails.price_information.app_sale_price}}</h2>
+          <p>Discount</p>
+          <h3>{{productDetails.price_information.currency}}{{productDetails.price_information.discount}} ({{productDetails.price_information.discount_percentage}}%) </h3>
+          <p>Original Price</p>
+          <h3>{{productDetails.price_information.currency}}{{productDetails.price_information.original_price}}</h3>
+        </kendo-tilelayout-item-body>
+      </kendo-tilelayout-item>
+    </kendo-tilelayout>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <p>
+      Loading...
+    </p>
+  </ng-template>
+</div>

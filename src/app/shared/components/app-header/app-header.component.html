@@ -1,0 +1,39 @@
+<section *ngIf="!!username">
+
+  <kendo-appbar position="top" class="kendo-appbar">
+    <kendo-appbar-section>
+      <kendo-avatar width="160px" height="48px" imageSrc="https://res.cloudinary.com/devpost/image/fetch/s--z8EPVd3I--/c_limit,f_auto,fl_lossy,q_auto:eco,w_900/https://i.ibb.co/5v9JHvj/amazeballs.jpg" [rounded]="'medium'"></kendo-avatar>
+    </kendo-appbar-section>
+
+    <kendo-appbar-spacer width="32px"></kendo-appbar-spacer>
+
+    <kendo-appbar-section>
+      <ul>
+        <li><a [routerLink]="['']" routerLinkActive="router-link-active">Dashboard</a></li>
+        <li><a [routerLink]="['/products']" routerLinkActive="router-link-active" id="nav-product">Products</a></li>
+        <li><span>Contacts</span></li>
+      </ul>
+    </kendo-appbar-section>
+
+    <kendo-appbar-spacer></kendo-appbar-spacer>
+
+    <kendo-appbar-section>
+      <button kendoButton #anchor (click)="onToggle()" class="kendo-appbar-btn">
+        <kendo-avatar [imageSrc]="avatar" shape="circle" width="26px" height="26px"> </kendo-avatar>
+      </button>
+      <kendo-popup [anchor]="$any(anchor)" (anchorViewportLeave)="show = false" *ngIf="show">
+        <div class="kendo-appbar-popup">
+          <ul>
+            <li>{{username}}</li>
+            <li>
+              <span class="divider"></span>
+            </li>
+            <li>
+              <button (click)="logout()">Logout</button>
+            </li>
+          </ul>
+        </div>
+      </kendo-popup>
+    </kendo-appbar-section>
+  </kendo-appbar>
+</section>

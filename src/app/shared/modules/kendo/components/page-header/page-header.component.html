@@ -1,0 +1,15 @@
+<section >
+  <kendo-appbar position="top">
+    <kendo-appbar-section>
+      <h1>{{title}}</h1>
+    </kendo-appbar-section>
+    <kendo-appbar-spacer></kendo-appbar-spacer>
+
+    <kendo-appbar-section *ngIf="backPage">
+      <a [routerLink]="['/'+backPage]" routerLinkActive="router-link-active">
+        <kendo-icon name="arrow-chevron-left" size="medium"></kendo-icon>Back
+      </a>
+    </kendo-appbar-section>
+  </kendo-appbar>
+
+</section>

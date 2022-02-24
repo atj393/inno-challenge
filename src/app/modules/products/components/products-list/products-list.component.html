@@ -1,0 +1,3 @@
+<app-page-header [title]="'Products List'"></app-page-header>
+
+<app-data-grid [columns]="columns" [dataList]="productsList" (gridPageEvent)="getProductLists($event)" (doubleClickedEvent)="gotoProductDetails($event)"></app-data-grid>

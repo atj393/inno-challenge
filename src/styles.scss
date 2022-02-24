@@ -1,0 +1,21 @@
+@import "~@progress/kendo-theme-default/scss/panelbar/_index.scss";
+@import "~@progress/kendo-theme-default/scss/grid/_index.scss";
+
+// kendo-angular-navigation
+@import "~@progress/kendo-theme-default/scss/appbar/_index.scss";
+@import "~@progress/kendo-theme-default/scss/breadcrumb/_index.scss";
+@import "~@progress/kendo-theme-default/scss/bottom-navigation/_index.scss";
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  background-color: fade(#FFFFFF, 50%);
+  ;
+}

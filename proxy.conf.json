@@ -1,0 +1,9 @@
+{
+    "/api/*": {
+        "target": "https://amazon24.p.rapidapi.com/",
+   
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

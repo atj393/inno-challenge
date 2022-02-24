@@ -1,0 +1,29 @@
+<!-- <section>
+  <div>
+    <button (click)="login()">Login</button>
+  </div>
+</section> -->
+
+<section>
+  <kendo-popup [popupAlign]="popupAlign">
+    <kendo-card width="260px" height="300">
+      <kendo-card-header class="k-hstack">
+        amazoff : Login
+      </kendo-card-header>
+
+      <kendo-card-body>
+        <p>
+          <label for="username">Please enter username</label>
+        </p>
+        <input type="text" [(ngModel)]="username">
+      </kendo-card-body>
+      <hr />
+
+      <kendo-card-actions>
+        <button mat-button (click)="login()" [disabled]="!username.length" class="login-btn">Login</button>
+      </kendo-card-actions>
+
+    </kendo-card>
+  </kendo-popup>
+
+</section>
